@@ -58,6 +58,8 @@ services:
       - pixelspringnetwork
     expose:
       - 3000
+    environment:
+      NEXT_PUBLIC_API_URL: https://pixelspring-api.onrender.com
 
 networks:
   pixelspringnetwork:
