@@ -15,9 +15,5 @@ COPY --from=builder  ./app/target/*.jar ./application.jar
 # porta que vai rodar o container
 EXPOSE 8080
 
-# variável de ambiente
-ENV POSTGRES_HOST=localhost
-RUN echo "the env var POSTGRES_HOST value is $POSTGRES_HOST"
-
 # comando que inicializa a aplição no modo de produção
 ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=production", "application.jar"]

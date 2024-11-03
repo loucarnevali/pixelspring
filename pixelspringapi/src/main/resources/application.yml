@@ -21,4 +21,4 @@ spring:
     activate:
       on-profile: production
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST}:5432/pixelspring
+    url: ${POSTGRES_HOST}

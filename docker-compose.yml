@@ -42,8 +42,7 @@ services:
       - "8080:8080"
     networks:
       - pixelspringnetwork
-    environment:
-      - "POSTGRES_HOST=db"
+    env_file: ./pixelspringapi/.env
 
   app:
     build:
