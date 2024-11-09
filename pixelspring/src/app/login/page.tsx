@@ -30,6 +30,8 @@ export default function Login() {
     });
 
   async function onSubmit(values: LoginForm) {
+    setLoading(true);
+
     if (!newUserState) {
       const credentials: Credentials = {
         email: values.email,
@@ -44,6 +46,8 @@ export default function Login() {
       } catch (error: any) {
         const message = error?.message;
         notification.notify(message, "error");
+      } finally {
+        setLoading(false); // Desativar o carregamento
       }
     } else {
       const user: User = {
@@ -60,6 +64,8 @@ export default function Login() {
       } catch (error: any) {
         const message = error?.message;
         notification.notify(message, "error");
+      } finally {
+        setLoading(false); // Desativar o carregamento
       }
     }
   }
@@ -159,6 +165,7 @@ export default function Login() {
                   type="submit"
                   style="bg-indigo-700 hover:bg-indigo-500"
                   label="Save"
+                  disabled={loading} // Desabilita o botão durante o carregamento
                 />
 
                 <Button
@@ -173,7 +180,8 @@ export default function Login() {
                 <Button
                   type="submit"
                   style="bg-indigo-700 hover:bg-indigo-500"
-                  label="Login in"
+                  label="Login"
+                  disabled={loading} // Desabilita o botão durante o carregamento
                 />
 
                 <Button

@@ -17,11 +17,11 @@ export const Template: React.FC<TemplateProps> = ({
   loading,
 }: TemplateProps) => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       {/* HEADER */}
       <Header />
 
-      <div className="container mx-auto mt-8 px-4">
+      <div className="flex-grow container mx-auto mt-8 px-4">
         <RenderIf condition={loading}>
           <div className="text-center">
             <Loading />
@@ -41,7 +41,7 @@ export const Template: React.FC<TemplateProps> = ({
         closeOnClick={true}
         pauseOnHover={true}
       />
-    </>
+    </div>
   );
 };
 
@@ -57,22 +57,28 @@ const Header: React.FC = () => {
 
   return (
     <header className="bg-zinc-200 text-black py-3">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        <Link href="/galeria">
-          <img src={logo} alt="PixelSpring Logo" width={"150px"} />
-          {/* <h1 className="text-3xl font-bold"> PixelSpring</h1> */}
-        </Link>
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4">
+        <div className="w-full sm:w-auto flex justify-center sm:justify-start">
+          <Link href="/galeria">
+            <img
+              src={logo}
+              alt="PixelSpring Logo"
+              width={"150px"}
+              className="mx-auto sm:mx-0"
+            />
+          </Link>
+        </div>
 
         <RenderIf condition={!!user}>
-          <div className="flex items-center">
-            <div className="relative">
-              <span className="w-64 py-3 px-6 ">Hello, {user?.name}</span>
-              <span className="w-64 py-3 px-6 ">
-                <a href="#" onClick={logout}>
-                  Logout
-                </a>
-              </span>
-            </div>
+          <div className="flex flex-col items-end text-right mt-4 sm:mt-0 w-full sm:w-auto">
+            <span className="text-lg">Hello, {user?.name}</span>
+            <a
+              href="#"
+              onClick={logout}
+              className="border-b border-transparent hover:border-black text-black mt-1"
+            >
+              Logout
+            </a>
           </div>
         </RenderIf>
       </div>

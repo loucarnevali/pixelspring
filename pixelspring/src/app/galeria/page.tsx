@@ -67,7 +67,7 @@ export default function GaleriaPage() {
     <AuthenticatedPage>
       <Template loading={loading}>
         <section className="flex flex-col items-center justify-center my-5">
-          <div className="flex space-x-4">
+          <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 w-full max-w-lg mx-auto px-4">
             <InputText
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Type name or tags"
@@ -83,22 +83,24 @@ export default function GaleriaPage() {
               <option value="GIF">GIF</option>
             </select>
 
-            <Button
-              style="bg-indigo-500 hover:bg-indigo-400"
-              label="Search"
-              onClick={searchImage}
-            />
-
-            <Link href="/formulario">
+            <div className="flex space-x-2">
               <Button
-                style="bg-yellow-500 hover:bg-yellow-400"
-                label="Add New"
+                style="bg-indigo-500 hover:bg-indigo-400 w-24 h-12"
+                label="Search"
+                onClick={searchImage}
               />
-            </Link>
+
+              <Link href="/formulario">
+                <Button
+                  style="bg-yellow-500 hover:bg-yellow-400 w-24 h-12 whitespace-nowrap"
+                  label="Add New"
+                />
+              </Link>
+            </div>
           </div>
         </section>
 
-        <section className="grid grid-cols-4 gap-8">
+        <section className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           {renderAllImageCards()}
         </section>
       </Template>
