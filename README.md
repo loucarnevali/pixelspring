@@ -69,7 +69,8 @@ Here is an overview of the project's directory structure:
 
 ## Deploy
 
-The application have been deployed on **Render**, a cloud platform that supports seamless deployment for web services.
+The API, front-end application, and database have been deployed using **Render** and **Neon** for seamless cloud hosting and database management.
+
 And are live and accessible via [PixelSpring](https://pixelspring-app.onrender.com/) 
 
 
